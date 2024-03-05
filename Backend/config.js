@@ -1,3 +1,1 @@
-module.exports={
-    JWT_SECRET: "paras1610"
-}
+export const JWT_SECRET = "paras1610";
