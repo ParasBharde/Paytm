@@ -30,11 +30,10 @@ router.post("/signup", async (req, res) => {
         })
     }
 
-    const existingUser = User.findOne({
+    const existingUser = await User.findOne({
         username: req.body.username
     })
-    console.log('existingUser',existingUser)
-  
+
     if (existingUser) {
         return res.json({
             message: "Email ALready Taken"
@@ -56,7 +55,7 @@ router.post("/signup", async (req, res) => {
     })
 
     const token = jwt.sign({
-         userId
+        userId
     }, JWT_SECRET)
     res.json({
         message: "User Created Successfully",
